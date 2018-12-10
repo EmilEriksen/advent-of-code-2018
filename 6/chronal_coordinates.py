@@ -82,7 +82,6 @@ def p1(points):
 
 
 def within_region(point, points):
-    x, y = point
     total_distance = 0
 
     for i, p in enumerate(points):
@@ -110,5 +109,5 @@ if __name__ == '__main__':
     with open('input.txt', 'r') as input:
         points = OrderedSet(map(parse_line, input.read().splitlines()))
 
-        #print(p1(points))
+        print(p1(points))
         print(p2(points))
