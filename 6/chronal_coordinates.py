@@ -81,8 +81,29 @@ def p1(points):
     return best
 
 
+def within_region(point, points):
+    x, y = point
+    total_distance = 0
+
+    for i, p in enumerate(points):
+        total_distance += manhattan_dist(point, p)
+
+        if total_distance >= 10000:
+            return False
+
+    return True
+
+
 def p2(points):
-    pass
+    (min_x, min_y), (max_x, max_y) = get_bounds(points)
+    size = 0
+
+    for i in range(min_x, max_x):
+        for j in range(min_y, max_y):
+            if within_region((i, j), points):
+                size += 1
+
+    return size
 
 
 if __name__ == '__main__':
